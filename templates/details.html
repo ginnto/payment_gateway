@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>donate</title>
+
+    <link href=" {% static 'css/details.css' %}" rel="stylesheet">
+    <link href=" {% static 'css/responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<section class="container">
+    <div class="form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                <small id="dname" class="form-text text-muted">Please enter your name</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputAmount">amount</label>
+                <input type="number" class="form-control" id="exampleInputAmount" name="amount" placeholder="Amount">
+                  <small  class="form-text text-muted">Enter your Amount.</small>
+              </div>
+
+              <button type="submit" id="rzp-button1" class="btn btn-primary">Pay</button>
+
+               <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                <script>
+                    var options = {
+                        "key": "rzp_test_tHAuHTWi7mwGC0", // Enter the Key ID generated from the Dashboard
+                        "amount": "{{amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "currency": "INR",
+                        "name": "BRIGHT ORG",
+                        "description": "DONATE TRANSACTION",
+                        "image": "https://example.com/your_logo",
+                        "handler": function (response){
+                            alert(response.razorpay_payment_id);
+                            alert(response.razorpay_order_id);
+                            alert(response.razorpay_signature)
+                        },
+
+                        "theme": {
+                            "color": "#3399cc"
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    rzp1.on('payment.failed', function (response){
+                            alert(response.error.code);
+                            alert(response.error.description);
+                            alert(response.error.source);
+                            alert(response.error.step);
+                            alert(response.error.reason);
+                            alert(response.error.metadata.order_id);
+                            alert(response.error.metadata.payment_id);
+                    });
+                    document.getElementById('rzp-button1').onclick = function(e){
+                        rzp1.open();
+                        e.preventDefault();
+                    }
+                </script>
+
+            </form>
+    </div>
+</section>
+
+</body>
+</html>
