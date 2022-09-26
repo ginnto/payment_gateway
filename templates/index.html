@@ -64,8 +64,8 @@
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
 
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li><a href="portfolio.html">Portfolio</a></li>
-                              <li><a href="blog.html">Blog</a></li>
+                              <li><a href="{% url 'donate' %}">Donate</a></li>
+                              <li><a href="#contact">Contact</a></li>
                             </ul>
 
                         </li>
@@ -95,10 +95,9 @@
 
         <section class="site-section section-features">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-5">
                         <div class="counter-item">
-                            <p class="counter" data-to="240" data-speed="2000">0</p>
+                            <h1 class="counter" data-to="240" data-speed="2000">0</h1><br>
+                            <p>Million Indians</p>
 
                         </div>
                     </div>
@@ -113,11 +112,19 @@
         <section class="site-section section-services text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="img" ><img src="{% static 'img/ne.jpg' %}"></div>
+                    <div class="col-md-4">
+                        <div class="yes">
+                       <h2> YES!</h2></div>
+<!--                        <div class="img" ><img src="{% static 'img/ne.jpg' %}"></div>-->
                     </div>
-                    <div class="col-md-6">
-                        <div class="con" > <p>gdhweh dwhdhwhdwydwebd wduwehd8ywe8d wed dwuehdhuxubugadg ddgug</p></div>
+                    <div class="col-md-8">
+                        <div class="con" >
+                            <p>240 Million Indians Have No Electricity</p>
+                            <p>13% of Indian Households Still Don't Have Access to Grid-Connected Electricity: Survey.
+                            A recently-released survey suggests that nearly 87% of the country's population has access to grid-based electricity,
+                            while 13% either use non-grid sources for electricity and lighting or don't use any electricity at all.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,9 +132,41 @@
 
         <section class="site-section section-map-feature text-center">
 
-            <div class="container">
-                <h2>Responsive Web Design</h2>
-                <p>Web design is responsive design. Responsive web design is web design, done right.</p>
+            <div class="container" id="contact">
+                <h2>any query</h2>
+                <div class="form">
+					<form  method="POST" id="post-form">
+						{% csrf_token %}
+						<div class="top">
+							<h3>Enquire Now</h3>
+						</div>
+						<div class="bottom">
+							<p>
+								<label for="enq">What do you wish to enquire
+									about?</label>
+						<input type="text" name="enq" id="enq" placeholder="example:Products,Career"/>
+							</p>
+							<p>
+								<label for="name">Enter your name</label>
+								<input type="text" name="name" id="name"/>
+							</p>
+							<p>
+								<label for="email">Enter you email address</label>
+								<input type="text" name="email" id="email" placeholder="example@email.com"/>
+							</p>
+							<p>
+								<label for="message">Enter your message</label>
+								<textarea name="message" id="message" cols="30" rows="5"></textarea>
+							</p>
+
+							<p class="submit_button">
+								<input type="submit" value="Submit" class="submit_button submit" />
+							</p>
+
+						</div>
+					</form>
+
+				</div>
                 <a href="#" class="btn btn-fill">Learn More</a>
 
             </div>
@@ -157,7 +196,7 @@
                     <p>WE COLLECT ALL THE DONATION AND HELP PEOPLE  .</p>
                 </div>
                 <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
-                    <h3>Keep in touch</h3>
+                    <h3 style="{font-color:black}">Keep in touch</h3>
                     <ul class="list-unstyled contact-links">
                         <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@BRIGHTFOUNTATION.com">info@brightfountaion.com</a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:888 999 22 21">888 999 22 21 </a></li>
@@ -208,6 +247,5 @@
     <script src="{% static 'js/jquery.countTo.min.js' %}"></script>
     <script src="{% static 'js/jquery.shuffle.min.js' %}"></script>
     <script src="{% static 'js/script.js'  %}"></script>
-  
 </body>
 </html>

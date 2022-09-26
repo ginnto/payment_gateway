@@ -36,7 +36,7 @@
 /* CUSTOM RESETS
 ================================================== */
 a {
-    color: #fefbfa;
+    color: white;
     transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
@@ -69,14 +69,17 @@ h2 {
     font-size: 42px;
 }
 
-h1,h2,h3,h4,h5 {
-    color: #fefbfa;
+h1,h2,h3,h4,h5,h6 {
+    color: #ffffff;
 }
 
 p + p {
     margin-top: 40px;
 }
+.hero-text{
+    text-color:white;
 
+}
 /* Buttons */
 .btn {
     line-height: 50px;
@@ -892,7 +895,6 @@ html, body {
 .site-section {
    padding: 100px 0 140px;
    background-color:black;
-
 }
 
 .subheading-text {
@@ -919,18 +921,13 @@ html, body {
 }
 
 /* Section: Features */
-.section-features h2 {
-    padding-bottom: 40px;
-    font-size: 30px;
-}
 
-.section-features img {
-    position: absolute;
-    right: 15px;
-    height: 380px;
-}
 
 /* Section: Services */
+.site-section section-services text-center
+{
+    background-color:grey;
+}
 .section-services .subheading-text {
     margin-bottom: 90px;
 }
@@ -938,20 +935,17 @@ html, body {
 .section-services .col-md-3:nth-child(n+5) .service {
     margin-top: 60px;
 }
+.con p{
+        text-align:center;
+        font-size:25px;
+        line-height: 1.1;
+        }
 
-.service {
-    min-height: 250px;
-}
+.yes h2{
+        font-size:150px;
+        }
 
-.service-title {
-    margin: 35px 0 25px;
-    font-size: 13px;
-    text-transform: uppercase;
-}
 
-.service-info {
-    font-size: 13px; 
-}
 
 /* Section: Map Feature */
 .section-map-feature {
@@ -981,87 +975,19 @@ html, body {
     line-height: 1;
 }
 
-.counter-item h3 {
+.counter-item h1 {
     margin: 0;
-    font-size: 500px;
-    color: #0960d7;
+    text-align:center;
+    font-size: 300px;
+    color: white;
+}
+.counter-item p{
+    text-align:center;
+    font-size: 30px;
+    color: #7b5719;
 }
 
 /* Section: Portfolio */
-.portfolio-item {
-    margin-top: 30px;
-}
-
-.portfolio-item {
-    height: 270px;
-    position: relative;
-}
-
-.portfolio-item:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 100%;
-    bottom: 0;
-    background-color: #f5f5f8;
-    transition: right 0.25s ease-in-out;
-    -moz-transition: right 0.25s ease-in-out;
-    -webkit-transition: right 0.25s ease-in-out;
-    -o-transition: right 0.25s ease-in-out;
-    -ms-transition: right 0.25s ease-in-out;
-}
-
-.portfolio-item:hover:before {
-    right: 25%;
-}
-
-.portfolio-item-title,
-.portfolio-item a {
-    position: absolute;
-    left: 0px;
-    margin: 0;
-    font-size: 16px;
-    opacity: 0;
-}
-
-.portfolio-item-title {
-    width: 150px; 
-    top: 15px;  
-    transition: left 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    -moz-transition: left 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    -webkit-transition: left 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    -o-transition: left 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    -ms-transition: left 0.25s ease-in-out, opacity 0.25s ease-in-out;
-}
-
-.portfolio-item:hover .portfolio-item-title {
-    left: 15px;
-    opacity: 1;
-}
-
-.portfolio-item a {
-    bottom: 15px;
-    color: #26272d;
-    padding: 5px 12px;
-    border: 1px solid #26272d;
-    border-radius: 50px;
-}
-
-.portfolio-item:hover a {
-    left: 55%;
-    opacity: 1;
-}
-
-.portfolio-item a:hover {
-    background-color: #26272d;
-    color: #fff;
-}
-
-.portfolio-item a i {
-    width: 16px;
-    text-align: center;
-}
 
 /* Section: Newsletter */
 .section-newsletter h2 {
@@ -1084,7 +1010,7 @@ html, body {
 /* FOOTER
 ================================================== */
 .site-footer {
-    background-color: #f5f5f8;
+    background-color: #fff;
     padding-top: 95px;
 }
 
@@ -1220,22 +1146,7 @@ a.linkedin-bg:hover {
     margin-top: 2px;
 }
 
-/* PAGES
-================================================== */
-.subpage-site-section {
-    padding: 60px 0;
-}
 
-.breadcrumb {
-    background-color: transparent;
-    position: relative;
-}
-
-.breadcrumb .active {
-    color: #fff;
-}
-
-/* 
  * Portfolio
  */
 .portfolio-sorting li:nth-child(-n+3){
@@ -1587,10 +1498,4 @@ a.linkedin-bg:hover {
 .section-contact-us .row + .form-group,
 .section-contact-us .form-group + .form-group {
     margin-top: 25px;
-}
-
-/* Section: map */
-.section-map {
-  height: 500px;
-  width: 100%
 }
