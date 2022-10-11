@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Basic Page Needs
     ================================================== -->
@@ -135,42 +138,34 @@
             <div class="container" id="contact">
                 <h2>any query</h2>
                 <div class="form">
-					<form  method="POST" id="post-form">
-						{% csrf_token %}
+                    <form  method="POST" id="post-form">
+                            {% csrf_token %}
 						<div class="top">
 							<h3>Enquire Now</h3>
 						</div>
-						<div class="bottom">
-							<p>
-								<label for="enq">What do you wish to enquire
-									about?</label>
-						<input type="text" name="enq" id="enq" placeholder="example:Products,Career"/>
-							</p>
-							<p>
-								<label for="name">Enter your name</label>
-								<input type="text" name="name" id="name"/>
-							</p>
-							<p>
-								<label for="email">Enter you email address</label>
-								<input type="text" name="email" id="email" placeholder="example@email.com"/>
-							</p>
-							<p>
-								<label for="message">Enter your message</label>
-								<textarea name="message" id="message" cols="30" rows="5"></textarea>
-							</p>
-
-							<p class="submit_button">
-								<input type="submit" value="Submit" class="submit_button submit" />
-							</p>
-
-						</div>
-					</form>
-
-				</div>
-                <a href="#" class="btn btn-fill">Learn More</a>
-
+                        <div class="container">
+                        <div class="mb-3">
+              <label for="email">Email address</label>
+              <input type="email" required maxlength="50" class="form-control"
+              id="email" name="email" placeholder="name@example.com">
             </div>
-            
+            <div class="mb-3">
+              <label for="name">Name</label>
+              <input type="text" required maxlength="50" class="form-control"
+              id="name" name="name" placeholder="Name">
+            </div>
+
+            <div class="mb-3">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary px-4">Send</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </section><!-- /.section-map-feature -->
 
 <!-- /.section-portfolio -->
@@ -196,7 +191,7 @@
                     <p>WE COLLECT ALL THE DONATION AND HELP PEOPLE  .</p>
                 </div>
                 <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
-                    <h3 style="{font-color:black}">Keep in touch</h3>
+                    <h3>Keep in touch</h3>
                     <ul class="list-unstyled contact-links">
                         <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@BRIGHTFOUNTATION.com">info@brightfountaion.com</a></li>
                         <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:888 999 22 21">888 999 22 21 </a></li>
@@ -248,4 +243,33 @@
     <script src="{% static 'js/jquery.shuffle.min.js' %}"></script>
     <script src="{% static 'js/script.js'  %}"></script>
 </body>
+<script type="text/javascript">
+	$(document).on('submit','#post-form',function(e){
+			e.preventDefault();
+
+			$.ajax({
+				type : 'POST',
+				url : 'enquire',
+				data : {
+
+                    email:$('#email').val(),
+					name:$('#name').val(),
+					message:$('#message').val(),
+					csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
+
+				},
+
+				success:function (){
+					swal({
+  						title: "YOUR ENQUIRE SUCCESSFULLY SUBMITTED!",
+  						text: "We Will Contact You Soon",
+  						icon: "success",
+  						button: "GO BACK!",
+						});
+					}
+			});
+
+	});
+
+</script>
 </html>

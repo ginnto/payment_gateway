@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf import settings
 from . models import *
@@ -33,3 +34,13 @@ def donate(request):
 
 
     return render(request,'details.html',context)
+
+def userenq(request):
+    if request.method == 'POST':
+       name = request.POST['name']
+       email = request.POST['email']
+       message = request.POST['message']
+       new_enq= UserEnqFrom(name=name,email=email,message=message)
+       new_enq.save()
+
+       return HttpResponse()

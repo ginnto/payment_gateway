@@ -114,7 +114,7 @@ p + p {
 
 .btn-green {
     background-color: #6fc754;
-    color: #fff;  
+    color: white;
 }
 
 .btn:hover,
@@ -178,6 +178,11 @@ button.btn:focus {
     padding-right: 80px;
 }
 
+
+/*----------new form -----*/
+
+
+/*----------------end -----------*/
 /* ELEMENTS
 ================================================== */
 /* Checkbox fields */
@@ -656,7 +661,7 @@ html, body {
 .site-title {
     font-size: 18px;
     line-height: 26px;
-    color: #26272d;
+    color: white;
 }
 
 .site-title:hover {
@@ -668,7 +673,7 @@ html, body {
 }
 
 .site-title a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 /* Navigation */
@@ -808,6 +813,7 @@ html, body {
 }
 
 .hero-text {
+    color:white;
     max-width: 890px;
     width: 100%;
     margin: 0 auto;
@@ -824,17 +830,18 @@ html, body {
     position: relative;
     margin: 45px 0 30px;
     font-size: 20px;
-    color: #26272d;
+    color: white;
 }
 
 .hero-text .btn {
     position: relative;
-    background-color: transparent;
+    background-color: black;
+    color:white;
 }
 
 .hero-text .btn:hover {
-    background-color: #26272d;
-    color: #fff;
+    background-color: white;
+    color: black;
 }
 
 .hero .breadcrumb {
@@ -924,9 +931,9 @@ html, body {
 
 
 /* Section: Services */
-.site-section section-services text-center
+.section-services
 {
-    background-color:grey;
+    background-color:#1b1b1b;
 }
 .section-services .subheading-text {
     margin-bottom: 90px;
@@ -1010,6 +1017,7 @@ html, body {
 /* FOOTER
 ================================================== */
 .site-footer {
+
     background-color: #fff;
     padding-top: 95px;
 }
@@ -1020,9 +1028,13 @@ html, body {
 }
 
 .site-footer h3 {
+    font-color:#000000;
     font-size: 16px;
     text-transform: uppercase;
     margin:0 0 40px;
+}
+.site-footer p {
+    font-color:#000000;
 }
 
 .site-footer > .container {
